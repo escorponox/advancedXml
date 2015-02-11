@@ -6,12 +6,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * <p>Java class for solicitarResponse complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="solicitarResponse">
  *   &lt;complexContent>
@@ -23,40 +22,34 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "solicitarResponse", propOrder = {
-    "_return"
+		"_return"
 })
 public class SolicitarResponse {
 
-    @XmlElement(name = "return")
-    protected RespuestaVacaciones _return;
+	@XmlElement(name = "return")
+	protected RespuestaVacaciones _return;
 
-    /**
-     * Gets the value of the return property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RespuestaVacaciones }
-     *     
-     */
-    public RespuestaVacaciones getReturn() {
-        return _return;
-    }
+	/**
+	 * Gets the value of the return property.
+	 *
+	 * @return possible object is
+	 * {@link RespuestaVacaciones }
+	 */
+	public RespuestaVacaciones getReturn() {
+		return _return;
+	}
 
-    /**
-     * Sets the value of the return property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RespuestaVacaciones }
-     *     
-     */
-    public void setReturn(RespuestaVacaciones value) {
-        this._return = value;
-    }
+	/**
+	 * Sets the value of the return property.
+	 *
+	 * @param value allowed object is
+	 *              {@link RespuestaVacaciones }
+	 */
+	public void setReturn(RespuestaVacaciones value) {
+		this._return = value;
+	}
 
 }

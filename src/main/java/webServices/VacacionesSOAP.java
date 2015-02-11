@@ -22,10 +22,12 @@ public class VacacionesSOAP {
 
         for (Date date : solicitudVacaciones.getDias()) {
 
-            if (solicitudVacaciones.getDias().indexOf(date) % 2 == 0) {
-                diasAprobados.add(date);
-            }
-        }
+			//Your tyrant boss only gives you alternate days so you can't travel.
+			//You can troll him by requesting the same day several times :))))
+			if (solicitudVacaciones.getDias().indexOf(date) % 2 == 0) {
+				diasAprobados.add(date);
+			}
+		}
 
         return new RespuestaVacaciones(diasAprobados);
     }

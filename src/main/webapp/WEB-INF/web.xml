@@ -2,6 +2,34 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
+
+    <listener>
+        <listener-class>
+            com.sun.xml.ws.transport.http.servlet.WSServletContextListener
+        </listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>ProductosXMLRPC</servlet-name>
+        <servlet-class>
+            com.sun.xml.ws.transport.http.servlet.WSServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductosXMLRPC</servlet-name>
+        <url-pattern>/ProductosXMLRPC</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>VacacionesSOAP</servlet-name>
+        <servlet-class>
+            com.sun.xml.ws.transport.http.servlet.WSServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VacacionesSOAP</servlet-name>
+        <url-pattern>/VacacionesSOAP</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
