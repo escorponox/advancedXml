@@ -2,38 +2,43 @@
 <definitions
         xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:tns="http://webServices/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://webServices/" name="ProductosXMLRPC">
-    <types>
+        xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://webServices/"
+        name="ProductosXMLRPC"> <!--se definen los espacios de nombre-->
+    <types> <!--se declara el esquema el esquema-->
         <xsd:schema>
             <xsd:import namespace="http://jaxb.dev.java.net/array"
                         schemaLocation="http://localhost:8080/xml/ProductosXMLRPC?xsd=1"/>
         </xsd:schema>
     </types>
-    <message name="orderProduct">
+    <message name="orderProduct"> <!--define el mensaje de envio para solicitar productos-->
         <part name="code" type="xsd:string"/>
         <part name="quantity" type="xsd:int"/>
     </message>
+    <!--define el mensaje de respuesta a las solicitudes de productos-->
     <message name="orderProductResponse">
         <part name="return" type="xsd:string"/>
     </message>
+    <!--define el mensaje de envio de la solicitud de la lista de productos-->
     <message name="listProducts"/>
-    <message name="listProductsResponse">
+    <message name="listProductsResponse"> <!--define el mensaje de respuesta a la lista de productos-->
         <part xmlns:ns1="http://jaxb.dev.java.net/array" name="return" type="ns1:stringArray"/>
     </message>
     <portType name="ProductosXMLRPC">
-        <operation name="orderProduct" parameterOrder="code quantity">
+        <operation name="orderProduct" parameterOrder="code quantity"> <!--define la operacion de solicitud de producto-->
             <input wsam:Action="http://webServices/ProductosXMLRPC/orderProductRequest" message="tns:orderProduct"/>
             <output wsam:Action="http://webServices/ProductosXMLRPC/orderProductResponse"
                     message="tns:orderProductResponse"/>
         </operation>
-        <operation name="listProducts">
+        <operation name="listProducts"> <!--define la operacion de solicitud de lista de productos-->
             <input wsam:Action="http://webServices/ProductosXMLRPC/listProductsRequest" message="tns:listProducts"/>
             <output wsam:Action="http://webServices/ProductosXMLRPC/listProductsResponse"
                     message="tns:listProductsResponse"/>
         </operation>
     </portType>
-    <binding name="ProductosXMLRPCPortBinding" type="tns:ProductosXMLRPC">
+    <binding name="ProductosXMLRPCPortBinding"
+             type="tns:ProductosXMLRPC"> <!--define los protocolos empleados para acceder a nuestras operaciones-->
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+        <!--define que usamos RPC-->
         <operation name="orderProduct">
             <soap:operation soapAction=""/>
             <input>
@@ -53,7 +58,7 @@
             </output>
         </operation>
     </binding>
-    <service name="ProductosXMLRPC">
+    <service name="ProductosXMLRPC"> <!--define los servicios ofrecidos a traves del fichero wsdl-->
         <port name="ProductosXMLRPCPort" binding="tns:ProductosXMLRPCPortBinding">
             <soap:address location="http://localhost:8080/xml/ProductosXMLRPC"/>
         </port>
